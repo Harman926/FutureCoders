@@ -1,0 +1,190 @@
+:root {
+  /* Primary Brand Colors */
+  --ai-green: hsl(84, 81%, 64%);
+  --ai-green-bright: hsl(84, 100%, 70%);
+  --ai-green-dark: hsl(84, 60%, 45%);
+
+  /* Accent Colors */
+  --electric-blue: hsl(195, 100%, 50%);
+  --purple: hsl(271, 81%, 56%);
+
+  /* Background System */
+  --background: hsl(240, 10%, 3.9%);
+  --surface: hsl(240, 10%, 6%);
+  --surface-elevated: hsl(240, 8%, 8%);
+
+  /* Text Colors */
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 5%, 65%);
+
+  /* Special Effects */
+  --gradient-bg: linear-gradient(135deg, var(--ai-green), var(--electric-blue));
+  --gradient-purple: linear-gradient(135deg, var(--ai-green), var(--purple));
+  --card-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+  --glow-effect: 0 0 20px hsla(84, 81%, 64%, 0.3);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Glassmorphic style */
+.apply-section,
+.contact-section {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  margin: 3rem auto;
+  max-width: 700px;
+  color: var(--foreground);
+  backdrop-filter: blur(20px);
+  box-shadow: var(--card-shadow);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Animated glowing background */
+.apply-section::before,
+.contact-section::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 180deg at 50% 50%, var(--ai-green), var(--electric-blue), var(--purple), var(--ai-green));
+  animation: spin 8s linear infinite;
+  opacity: 0.08;
+  z-index: 0;
+}
+
+/* Headings */
+.apply-section h2,
+.contact-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  color: var(--foreground);
+}
+
+/* Labels */
+.apply-section label {
+  display: block;
+  margin: 1rem 0 0.5rem;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+  color: var(--foreground);
+}
+
+/* Inputs & Textareas */
+.apply-section input,
+.apply-section textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--foreground);
+  font-size: 1rem;
+  backdrop-filter: blur(10px);
+  outline: none;
+  position: relative;
+  z-index: 1;
+  transition: box-shadow 0.3s ease, border 0.3s ease;
+}
+
+/* Glowing effect on hover/focus */
+.apply-section input:hover,
+.apply-section textarea:hover,
+.apply-section input:focus,
+.apply-section textarea:focus {
+  border: 1px solid var(--ai-green);
+  box-shadow: 0 0 10px hsla(84, 100%, 70%, 0.5);
+}
+
+/* Placeholder text */
+.apply-section input::placeholder,
+.apply-section textarea::placeholder {
+  color: var(--muted);
+}
+
+/* Button */
+.apply-section button {
+  padding: 0.75rem 1.5rem;
+  background: var(--gradient-bg);
+  border: none;
+  border-radius: 0.75rem;
+  color: var(--foreground);
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: var(--glow-effect);
+  position: relative;
+  z-index: 1;
+}
+
+/* Button hover effect */
+.apply-section button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px hsla(84, 100%, 70%, 0.4);
+}
+
+/* Contact section text */
+.contact-section p {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin: 0.5rem 0;
+  z-index: 1;
+  position: relative;
+  color: var(--foreground);
+}
+
+/* Background animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* Shared style for section headings */
+.glow-heading {
+  font-size: 2.8rem;
+  font-weight: 800;
+  text-align: center;
+  background: linear-gradient(90deg, var(--ai-green), var(--electric-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  margin-bottom: 2.5rem;
+  text-shadow: 0 0 10px hsla(84, 100%, 70%, 0.5), 0 0 20px hsla(195, 100%, 60%, 0.4);
+  z-index: 1;
+}
+
+.glow-heading::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 6px;
+  background: linear-gradient(90deg, var(--ai-green), var(--electric-blue));
+  border-radius: 4px;
+  box-shadow: 0 0 8px var(--ai-green), 0 0 16px var(--electric-blue);
+  z-index: -1;
+}
