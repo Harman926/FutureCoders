@@ -1,0 +1,385 @@
+/* FutureCoders - About & Admissions Sections Styles */
+
+:root {
+    /* Primary Brand Colors */
+    --ai-green: hsl(84, 81%, 64%);
+    --ai-green-bright: hsl(84, 100%, 70%);
+    --ai-green-dark: hsl(84, 60%, 45%);
+    
+    /* Accent Colors */
+    --electric-blue: hsl(195, 100%, 50%);
+    --purple: hsl(271, 81%, 56%);
+    
+    /* Background System */
+    --background: hsl(240, 10%, 3.9%);
+    --surface: hsl(240, 10%, 6%);
+    --surface-elevated: hsl(240, 8%, 8%);
+    
+    /* Text Colors */
+    --foreground: hsl(0, 0%, 98%);
+    --muted: hsl(240, 5%, 65%);
+    
+    /* Special Effects */
+    --gradient-bg: linear-gradient(135deg, var(--ai-green) 0%, var(--electric-blue) 100%);
+    --gradient-purple: linear-gradient(135deg, var(--ai-green) 0%, var(--purple) 100%);
+    --card-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    --glow-effect: 0 0 20px hsla(84, 81%, 64%, 0.3);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--foreground);
+    background-color: var(--background);
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--ai-green);
+    margin-bottom: 1rem;
+    position: relative;
+    text-shadow: 0 0 10px hsla(84, 81%, 64%, 0.5);
+    background: var(--gradient-bg);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: var(--gradient-bg);
+    border-radius: 2px;
+    box-shadow: var(--glow-effect);
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    color: var(--muted);
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.feature-card {
+    background: var(--surface);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s ease;
+    border: 1px solid hsla(84, 81%, 64%, 0.2);
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, hsla(84, 81%, 64%, 0.05), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4), var(--glow-effect);
+    border-color: var(--ai-green);
+}
+
+.feature-card:hover::before {
+    opacity: 1;
+}
+
+.feature-icon {
+    width: 70px;
+    height: 70px;
+    background: var(--gradient-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    color: var(--background);
+    font-size: 1.8rem;
+    box-shadow: var(--glow-effect);
+    position: relative;
+    z-index: 2;
+}
+
+.feature-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--ai-green);
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+.feature-text {
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.6;
+    position: relative;
+    z-index: 2;
+}
+
+.admissions-card {
+    background: var(--surface-elevated);
+    border-radius: 20px;
+    padding: 3rem;
+    color: var(--foreground);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid hsla(84, 81%, 64%, 0.3);
+    box-shadow: var(--card-shadow), var(--glow-effect);
+}
+
+.admissions-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, hsla(84, 81%, 64%, 0.1) 0%, transparent 70%);
+    animation: pulse 4s ease-in-out infinite;
+}
+
+.admissions-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-bg);
+    opacity: 0.03;
+    pointer-events: none;
+}
+
+@keyframes pulse {
+    0%, 100% { 
+        transform: scale(1); 
+        opacity: 0.3; 
+    }
+    50% { 
+        transform: scale(1.1); 
+        opacity: 0.1; 
+    }
+}
+
+.admissions-content {
+    position: relative;
+    z-index: 2;
+}
+
+.admissions-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: var(--ai-green);
+    text-shadow: 0 0 10px hsla(84, 81%, 64%, 0.5);
+}
+
+.admissions-highlight {
+    background: hsla(84, 81%, 64%, 0.1);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid hsla(84, 81%, 64%, 0.2);
+    box-shadow: inset 0 0 20px hsla(84, 81%, 64%, 0.1);
+}
+
+.admissions-highlight h3 {
+    color: var(--ai-green-bright);
+    text-shadow: 0 0 10px hsla(84, 100%, 70%, 0.5);
+}
+
+.admissions-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    padding: 1rem;
+    border-radius: 8px;
+    background: hsla(84, 81%, 64%, 0.05);
+    border: 1px solid hsla(84, 81%, 64%, 0.1);
+}
+
+.admissions-item:hover {
+    background: hsla(84, 81%, 64%, 0.1);
+    transform: translateX(5px);
+    border-color: var(--ai-green);
+}
+
+.admissions-item i {
+    margin-right: 1rem;
+    font-size: 1.2rem;
+    color: var(--ai-green);
+    text-shadow: 0 0 5px hsla(84, 81%, 64%, 0.5);
+    margin-top: 0.2rem;
+}
+
+.admissions-item-content {
+    flex: 1;
+}
+
+.admissions-item strong {
+    color: var(--ai-green-bright);
+    font-size: 1.1rem;
+}
+
+.fee-structure {
+    background: hsla(195, 100%, 50%, 0.1);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border: 1px solid hsla(195, 100%, 50%, 0.2);
+}
+
+.fee-structure h4 {
+    color: var(--electric-blue);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.partners-section {
+    background: var(--surface);
+    padding: 2rem;
+    border-radius: 15px;
+    margin-top: 2rem;
+    border: 1px solid hsla(84, 81%, 64%, 0.1);
+}
+
+.partner-logo {
+    color: var(--ai-green);
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.partner-logo:hover {
+    color: var(--ai-green-bright);
+    text-shadow: 0 0 10px hsla(84, 100%, 70%, 0.5);
+}
+
+.partner-logo i {
+    margin-right: 0.5rem;
+    color: var(--electric-blue);
+}
+
+.certificate-info {
+    background: hsla(271, 81%, 56%, 0.1);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border: 1px solid hsla(271, 81%, 56%, 0.2);
+}
+
+.certificate-info h4 {
+    color: var(--purple);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.highlight-text {
+    color: var(--ai-green-bright);
+    font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .section-padding {
+        padding: 60px 0;
+    }
+    
+    .feature-card {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .admissions-card {
+        padding: 2rem;
+    }
+    
+    .admissions-title {
+        font-size: 1.8rem;
+    }
+    
+    .admissions-item {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .feature-title {
+        font-size: 1.2rem;
+    }
+    
+    .feature-text {
+        font-size: 0.95rem;
+    }
+    
+    .admissions-title {
+        font-size: 1.6rem;
+    }
+    
+    .admissions-item {
+        font-size: 0.9rem;
+    }
+}
+
+/* Scrollbar styling for dark theme */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--ai-green);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--ai-green-bright);
+}
+
+/* Selection styling */
+::selection {
+    background: hsla(84, 81%, 64%, 0.3);
+    color: var(--foreground);
+}
